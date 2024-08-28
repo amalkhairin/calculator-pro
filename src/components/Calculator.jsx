@@ -38,7 +38,7 @@ function Calculator() {
     return (
         <div className='w-full justify-center items-center gap-4 flex flex-col'>
             <div className='sm:w-1/3 bg-[#3C3E45] shadow-lg p-5 rounded-xl relative flex flex-col justify-center gap-5'>
-                <div className='w-full h-9 text-2xl text-end text-[#13A795]'>{dispalyInput}</div>
+                <div className='w-full h-9 text-2xl text-end text-[#13A795] overflow-auto'>{dispalyInput}</div>
             </div>
             <div className='sm:w-1/3 bg-[#3C3E45] shadow-lg p-5 rounded-xl relative flex flex-col justify-center gap-5'>
                 <div className='grid grid-cols-4 gap-2'>
@@ -49,8 +49,10 @@ function Calculator() {
                           : item === "DEL"
                           ? "bg-[#D13F3F]"
                           : "bg-[#212429] hover:bg-[#13A795]";
+                        
+                          const span = item === "=" ? "col-span-2" : "";
                         return (
-                            <button key={index} onClick={() => handleButtonClick(item.toString())} className={`${bgColor} p-0 px-5 py-4 border-1 border-[#596373] w-full h-full flex flex-col items-start rounded-xl hover:bg-[#13A795]`}>{item}</button>
+                            <button key={index} onClick={() => handleButtonClick(item.toString())} className={`${bgColor} ${span} p-0 px-5 py-4 border-1 border-[#596373] w-full h-full flex flex-col items-start rounded-xl hover:bg-[#13A795]`}>{item}</button>
                         )
                     })}
                 </div>
